@@ -23,11 +23,14 @@ function render() {
   ReactDOM.render(
     <Counter
       value={store.getState()}
-      onIncrement={() => action("INCREMENT")}
-      onDecrement={() => action("DECREMENT")}
-      onIncrementAsync={() => action("INCREMENT_ASYNC")}
+      onIncrement={() => action('INCREMENT')}
+      onDecrement={() => action('DECREMENT')}
+      onIncrementAsync={() => action('INCREMENT_ASYNC')}
+      onTryGo={() => action('TRY_GO')}
+      onLetGo={() => action('LET_GO')}
+      howDidItGo ={store.getState()}
     />,
-    document.getElementById("root")
+    document.getElementById('root')
   );
 }
 

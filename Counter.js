@@ -1,13 +1,30 @@
 /*eslint-disable no-unused-vars */
-import React, { Component, PropTypes } from "react";
+import React, { Component, PropTypes } from 'react';
 
-const Counter = ({ value, onIncrement, onDecrement, onIncrementAsync }) => (
+const Counter = ({
+  value,
+  onIncrement,
+  onDecrement,
+  onIncrementAsync,
+  onTryGo,
+  onLetGo,
+  howDidItGo
+}) => (
   <div>
-    <button onClick={onIncrementAsync}>Increment after 1 second</button>{" "}
-    <button onClick={onIncrement}>Increment</button>{" "}
+    <button onClick={onIncrementAsync}>Increment after 1 second</button>
+    <button onClick={onIncrement}>Increment</button>
     <button onClick={onDecrement}>Decrement</button>
+    <br />
+    <div>
+      Clicked: <b> {value} </b>times
+    </div>
     <hr />
-    <div>Clicked: {value} times</div>
+    <hr />
+    <button onClick={onTryGo}>Try Go</button>
+    <button onClick={onLetGo}>Let Go</button>
+    <div>
+      It went, right? : <b> {howDidItGo} </b> ...sort of.
+    </div>
   </div>
 );
 
