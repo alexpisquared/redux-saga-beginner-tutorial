@@ -1,17 +1,17 @@
-import "babel-polyfill";
+import 'babel-polyfill';
 
-import React from "react";
-import ReactDOM from "react-dom";
-import { createStore, applyMiddleware } from "redux";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { createStore, applyMiddleware } from 'redux';
 
-import createSagaMiddleware from "redux-saga";
+import createSagaMiddleware from 'redux-saga';
 
 // ...
-import { helloSaga } from "./sagas";
-import Counter from "./Counter";
-import reducer from "./reducers";
-import rootSaga from './sagas'
-
+import { helloSaga } from './sagas';
+import Counter from './Counter';
+import reducer from './reducers';
+import rootSaga from './sagas';
+import Dashboard from './modals/Dashboard';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(reducer, applyMiddleware(sagaMiddleware));
@@ -28,8 +28,11 @@ function render() {
       onIncrementAsync={() => action('INCREMENT_ASYNC')}
       onTryGo={() => action('TRY_GO')}
       onLetGo={() => action('LET_GO')}
-      howDidItGo ={store.getState()}
+      howDidItGo={store.getState()}
     />,
+
+    // <Dashboard />,
+
     document.getElementById('root')
   );
 }

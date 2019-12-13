@@ -30,9 +30,7 @@ function* watchIncrementAsync() {
 
   yield call(tryGo);  // blocking ...only if tryGo is.
 
-  console.log('watch all - 1');
   yield takeEvery('TRY_GO', letGo);
-  console.log('watch all - 2');
   yield takeEvery('INCREMENT_ASYNC', incrementAsync);
   
   console.log('watch all - Before ');
@@ -46,3 +44,6 @@ function* watchIncrementAsync() {
 export default function* rootSaga() {
   yield all([helloSaga(), watchIncrementAsync()]);
 }
+
+// blocking non-"blocking"
+// https://youtu.be/G4pI1iOGswA?list=PLMV09mSPNaQlWvqEwF6TfHM-CVM6lXv39&t=764
